@@ -3,6 +3,7 @@ import Script from "next/script";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
+import MetaNav from "./MetaNav";
 import theme from "./theme";
 import "./globals.css";
 
@@ -43,6 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <MetaNav />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

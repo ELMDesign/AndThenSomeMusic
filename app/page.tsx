@@ -1,26 +1,27 @@
 import BookingsButton from "./BookingsButton";
+import HeroCarousel from "./HeroCarousel";
+import InstagramEmbed from "./InstagramEmbed";
 import MailingListForm from "./MailingListForm";
 import SocialLinks from "./SocialLinks";
+import { getCarouselImages } from "@/lib/carousel";
 import { getInstagramPosts } from "@/lib/instagram";
 
 const INSTAGRAM_URL = "https://www.instagram.com/andthensomemusic/";
 
 export default async function Home() {
   const posts = await getInstagramPosts();
+  const carouselImages = await getCarouselImages();
 
   return (
     <main className="flex-1">
-      <SocialLinks />
-      <div className="flex justify-center">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.png" alt="And Then Some Music" className="h-[150px] w-[150px] object-contain" />
-      </div>
-      <section className="px-6 pt-4 pb-12 text-center">
-        <h1 className="text-[24px] font-bold tracking-tight">Bringing the Groove</h1>
-      </section>
+      <HeroCarousel images={carouselImages} />
 
-      <section className="mx-auto max-w-3xl px-6 pb-24">
-        <article className="space-y-6 rounded-lg bg-[#383838] p-8 leading-relaxed text-white shadow-lg sm:p-12">
+      <div
+        id="main-content"
+        className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-8 px-6 pt-12 pb-24 lg:grid-cols-3"
+      >
+        <section className="lg:col-span-2">
+          <article className="space-y-6 rounded-lg bg-[#383838] p-8 leading-relaxed text-white shadow-lg sm:p-12">
           <h2 className="text-3xl uppercase text-[#f69500]">About the Band</h2>
           <p>
             Formed by guitarist Erik Oldman and drummer/percussionist Paul Abella, the ensemble skips the academic
@@ -66,13 +67,14 @@ export default async function Home() {
             <BookingsButton />
           </div>
         </article>
-      </section>
+        </section>
 
-      <section className="px-6 pb-24 text-center">
-        <div className="mx-auto w-full max-w-[700px]">
+        <aside className="w-full text-center lg:col-span-1">
           <MailingListForm />
-        </div>
-      </section>
+          <h3 className="mt-10 mb-4 text-2xl uppercase text-[#f69500]">Upcoming Shows</h3>
+          <InstagramEmbed />
+        </aside>
+      </div>
 
       <section className="mx-auto max-w-5xl px-6 pb-24">
         <h2 className="mb-6 text-center text-2xl font-semibold">
