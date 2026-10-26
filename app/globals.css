@@ -1,18 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: "Montserrat", sans-serif;
+  --font-heading: "Playfair Display", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+/* Fill the h1-width container (Kit caps it at 700px); Kit's own colors/styles still apply */
+.formkit-form {
+  width: 100%;
+}
+
+/* Let Kit's form styles win over the global heading styles */
+.formkit-form :is(h1, h2, h3, h4, h5, h6) {
+  font-family: inherit;
+  font-weight: inherit;
+  text-transform: none;
+}
+
+/* Form header: dark purple with the logo's yellow-orange text (Kit sets these inline) */
+.formkit-form [data-style="full"] > .formkit-column:first-child {
+  background-color: #2e1065 !important;
+}
+
+.formkit-form .formkit-header,
+.formkit-form .formkit-header h2,
+.formkit-form .formkit-subheader {
+  color: #f69500 !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+/* Subscribe button: indigo-blue pulled from the background art */
+.formkit-form .formkit-submit {
+  background-color: #3b34b5 !important;
+}
+
+.formkit-form .formkit-submit:hover {
+  background-color: #2f2994 !important;
 }
 
 body {
-  background: var(--background);
+  background: var(--background) url("/background.png") center / cover no-repeat fixed;
   color: var(--foreground);
   font-family: var(--font-sans);
 }
