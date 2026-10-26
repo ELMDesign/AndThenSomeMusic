@@ -18,11 +18,11 @@ export default async function Home() {
 
       <div
         id="main-content"
-        className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-start gap-8 px-6 pt-12 pb-24 lg:grid-cols-3"
+        className="grid w-full grid-cols-1 items-start lg:items-stretch gap-8 px-4 lg:px-16 pt-12 pb-24 lg:grid-cols-3"
       >
-        <section className="lg:col-span-2">
-          <article className="space-y-6 rounded-lg bg-[#383838] p-8 leading-relaxed text-white shadow-lg sm:p-12">
-          <h2 className="text-3xl uppercase text-[#f69500]">About the Band</h2>
+        <section className="lg:col-span-2 lg:flex">
+          <article className="lg:w-full space-y-6 rounded-lg bg-[#383838] p-8 leading-relaxed text-white shadow-lg sm:p-12">
+          <h2 className="text-3xl min-[1240px]:text-[37.5px] uppercase text-[#f69500]">About the Band</h2>
           <p>
             Formed by guitarist Erik Oldman and drummer/percussionist Paul Abella, the ensemble skips the academic
             jazz route to focus on groove with a bend for experimentation. The band&apos;s core repertoire draws
@@ -38,7 +38,7 @@ export default async function Home() {
             <strong>John Coltrane</strong>, <strong>Brother Jack McDuff</strong>, and <strong>Lou Donaldson</strong>
             —filtering their legendary catalogs through the band&apos;s heavy, groove-first lens.
           </p>
-          <h3 className="pt-2 text-2xl uppercase text-[#f69500]">The Core Lineup</h3>
+          <h3 className="pt-2 text-2xl min-[1240px]:text-[30px] uppercase text-[#f69500]">The Core Lineup</h3>
           <ul className="list-disc space-y-4 pl-6">
             <li>
               <strong>Erik Oldman (Guitar &amp; Synth):</strong> A veteran of the Chicago instrumental scene, Erik is
@@ -71,7 +71,7 @@ export default async function Home() {
 
         <aside className="w-full text-center lg:col-span-1">
           <MailingListForm />
-          <h3 className="mt-10 mb-4 text-2xl uppercase text-[#f69500]">Upcoming Shows</h3>
+          <h3 id="upcoming-shows" className="mt-10 mb-4 scroll-mt-4 text-2xl min-[1240px]:text-[30px] uppercase text-[#f69500]">Upcoming Shows</h3>
           <InstagramEmbed />
         </aside>
       </div>
