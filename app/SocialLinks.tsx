@@ -18,11 +18,17 @@ const LINKS = [
   },
 ];
 
-const hoverSx = { "&:hover": { color: "#f69500", backgroundColor: "transparent" } };
+const hoverSx = { width: 44, height: 44, "&:hover": { color: "#f69500", backgroundColor: "transparent" } };
 
-export default function SocialLinks() {
+export default function SocialLinks({ dense = false }: { dense?: boolean }) {
   return (
-    <Stack direction="row" spacing={1} component="nav" aria-label="Social links" sx={{ justifyContent: "center", py: 3 }}>
+    <Stack
+      direction="row"
+      spacing={1}
+      component="nav"
+      aria-label="Social links"
+      sx={{ justifyContent: "center", py: dense ? 0.5 : 3 }}
+    >
       {LINKS.map(({ label, href, Icon }) => (
         <IconButton
           key={label}
