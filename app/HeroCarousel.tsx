@@ -51,7 +51,7 @@ export default function HeroCarousel({ images: IMAGES }: { images: string[] }) {
   };
 
   return (
-    <div className="px-4 py-8 lg:px-16">
+    <div className="px-4 py-4 md:py-8 lg:px-16">
       <div
         className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black"
         style={{ touchAction: "pan-y" }}
@@ -91,17 +91,17 @@ export default function HeroCarousel({ images: IMAGES }: { images: string[] }) {
             <img
               src="/logo.png"
               alt="And Then Some Music"
-              className="h-[clamp(36px,11vw,75px)] w-[clamp(36px,11vw,75px)] object-contain md:h-[150px] md:w-[150px] lg:aspect-square lg:h-auto lg:w-0 lg:min-w-full"
+              className="aspect-square h-auto w-0 min-w-full object-contain md:h-[150px] md:w-[150px] md:min-w-0 lg:aspect-square lg:h-auto lg:w-0 lg:min-w-full"
             />
             <h1
               ref={h1Ref}
-              className="text-[12px] font-bold tracking-tight md:text-[24px] lg:w-0 lg:min-w-full lg:whitespace-nowrap"
+              className="w-max text-[12px] font-bold tracking-tight whitespace-nowrap md:w-auto md:text-[24px] lg:w-0 lg:min-w-full lg:whitespace-nowrap"
             >
               Bringing the Groove
             </h1>
             <h2
               ref={h2Ref}
-              className="text-[9px] uppercase tracking-tight text-[#f69500] md:text-[18px] min-[1240px]:text-[22.5px] lg:w-max lg:whitespace-nowrap"
+              className="hidden text-[9px] uppercase tracking-tight text-white md:block md:text-[18px] min-[1240px]:text-[22.5px] lg:w-max lg:whitespace-nowrap"
             >
               Jazzy funky soulful jams from Chicago
             </h2>

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 const KIT_HOST = "https://azure-taurus-music-llc.kit.com";
 
-export default function MailingListForm({ uid = "8b49a721af" }: { uid?: string }) {
+export default function MailingListForm({ uid = "b206a8bb9e" }: { uid?: string }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
