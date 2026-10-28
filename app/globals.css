@@ -27,8 +27,9 @@ h1 {
 }
 
 /* Fill the h1-width container (Kit caps it at 700px); Kit's own colors/styles still apply */
-.formkit-form {
-  width: 100%;
+.formkit-form.formkit-form[data-uid] {
+  width: 100% !important;
+  max-width: none !important;
 }
 
 /* Let Kit's form styles win over the global heading styles */
@@ -38,7 +39,7 @@ h1 {
   text-transform: none;
 }
 
-/* Form header: dark purple with the logo's yellow-orange text (Kit sets these inline) */
+/* Form header: dark purple with white text (Kit sets these inline) */
 .formkit-form [data-style="full"] > .formkit-column:first-child {
   background-color: #2e1065 !important;
 }
@@ -46,7 +47,7 @@ h1 {
 .formkit-form .formkit-header,
 .formkit-form .formkit-header h2,
 .formkit-form .formkit-subheader {
-  color: #f69500 !important;
+  color: #ffffff !important;
   font-family: var(--font-heading) !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
@@ -70,5 +71,63 @@ body {
 @media (min-width: 1240px) {
   #main-content {
     font-size: 22.5px;
+  }
+}
+
+/* Markdown content from public/content, rendered by app/Markdown.tsx */
+.md-article > * + * {
+  margin-top: 1.5rem;
+}
+
+.md-article :is(h2, h3) {
+  color: #f69500;
+  text-transform: uppercase;
+}
+
+.md-article h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.md-article h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-top: 0.5rem;
+}
+
+.md-article ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.md-article li + li {
+  margin-top: 1rem;
+}
+
+@media (min-width: 1240px) {
+  .md-article h2 {
+    font-size: 37.5px;
+  }
+
+  .md-article h3 {
+    font-size: 30px;
+  }
+}
+
+.md-page h1 {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.md-page p {
+  margin-top: 2.5rem;
+  color: rgb(255 255 255 / 0.8);
+}
+
+@media (min-width: 640px) {
+  .md-page h1 {
+    font-size: 3.75rem;
   }
 }

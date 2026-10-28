@@ -5,19 +5,46 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import MetaNav from "./MetaNav";
 import theme from "./theme";
+import { jsonLd, OG_IMAGE, KEYWORDS, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const GTM_ID = "GTM-W93FRQNQ";
 
 export const metadata: Metadata = {
-  title: "And Then Some Music",
-  description: "Official home of And Then Some Music. Join the mailing list.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: "And Then Some Music | Chicago Funk & Soul-Jazz Band", template: "%s" },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: "And Then Some Music | Chicago Funk & Soul-Jazz Band",
+    description: SITE_DESCRIPTION,
+    url: "/",
+    locale: "en_US",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "And Then Some Music | Chicago Funk & Soul-Jazz Band",
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE.url],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
